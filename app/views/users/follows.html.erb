@@ -1,23 +1,27 @@
- <table class='table'>
-  <tr><%= image_tag current_user.get_profile_image, size:'100x100' %></tr>
+<% @users.each do |user| %>
+<table class='table'>
+  <h1>Follows User</h1>
   <tr>
-	  <th>name</th>
-	  <th><%= current_user.name %></th>
+    <th>image</th><th>name</th><th></th><th></th>
   </tr>
   <tr>
-	  <th>introduction</th>
-	  <th><%= current_user.introduction %></th>
-  </tr>
-  <tr>
-    <th>follows</th>
-    <th>>
-      <%= @following_users.count %>
-    </th>
-  </tr>
-  <tr>
-    <th>followes</th>
+    <th><%= image_tag user.get_profile_image, size:'50x50' %></th>
+  
+	  
+	  <th> <%= link_to user.name, user_path(user.id) %></th>
+  
+    
     <th>
-      <%= @follower_users.count %>
+      フォロー数:<%= @following_users.count %>
     </th>
-  </tr>
+  
+  
+    <th>
+      フォロワー数:<%= @follower_users.count %>
+    </th>
+  
+  <th><%= link_to 'Show', user %></th>
+ </tr> 
 </table>
+
+<% end %>
