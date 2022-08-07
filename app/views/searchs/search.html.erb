@@ -1,0 +1,48 @@
+<% if @model == 'user' %>
+  <h3>Books search for"<%= @content %>"</h3>
+      <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="user">
+    <% @records.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.title %></td>
+        <td><%= user.body %></td>
+    <% end %>
+      </tr>
+    </tbody>
+</table>
+
+<% else @model == 'books' %>
+  <h3>Books search for"<%= @content %>"</h3>
+    <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="book">
+    <% @records.each do |book| %>
+      <tr>
+        <td><%= book.user.name %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+    <% end %>
+      </tr>
+    </tbody>
+</table>
+<% end %>
