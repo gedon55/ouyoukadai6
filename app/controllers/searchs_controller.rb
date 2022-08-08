@@ -25,14 +25,16 @@ class SearchsController < ApplicationController
         User.where('name LIKE ?', '%'+content+'%')
       #前方一致
       elsif method == 'front'
-        User.where('neme LIKE ?', '%'+content+'%')
+        User.where('name LIKE ?', '%'+content+'%')
       #後方一致  
       elsif method == 'back'
         User.where('name LIKE ?', '%'+content+'%')
-        
+      else  
       end
     # 選択したモデルがpostだったら
+     
     elsif model == 'book'
+      
       if method == 'perfect'
         Book.where(title: content)
       elsif method == 'part'
@@ -43,7 +45,7 @@ class SearchsController < ApplicationController
       #後方一致  
       elsif method == 'back'
         Book.where('title LIKE ?', '%'+content+'%')
-        
+      else  
       end
     end
   end
