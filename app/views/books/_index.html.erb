@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% books.each do |book| %>
-      <tr>
+      <tr id="book_<%= book.id %>">
         <td><%= link_to(book.user) do %>
           <%= image_tag book.user.get_profile_image, size:'50x50' %>
           <% end %>
@@ -18,15 +18,15 @@
         <td><%= link_to book.body %></td>
 
 
-        <td>
+        <td class="favorite-button">
           <!--いいね機能-->
           <%= render 'favorites/favorite', book: book %>
           
         </td>
 
         <!--コメント数-->
-        <td>
-					<p>コメント数：<%= book.book_comments.count %></p>
+        <td class="comments-count">
+					コメント数：<%= book.book_comments.count %>
 				</td>
 
       </tr>
